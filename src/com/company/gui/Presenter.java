@@ -22,6 +22,7 @@ public class Presenter {
     }
 
     public static void readFile(String filePath) {
-        Controller.readFile(filePath);
+        //Controller.readFile(filePath);
+        Controller.readFile("C:\\Users\\marek\\Downloads\\firstHW_nr_NR4_inst.dat");
     }
 }

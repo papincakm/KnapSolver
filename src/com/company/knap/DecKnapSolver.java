@@ -47,7 +47,7 @@ public class DecKnapSolver extends KnapSolver<DecKnapInstance, ConKnapSolution> 
 
     private List<Integer> countFuturePrices() {
         List<Integer> futurePrices = new ArrayList<Integer>(Collections.nCopies(instance.itemCount(), 0));
-        for (int i = instance.itemCount() - 1; i >= 0; i--) {
+        for (int i = instance.itemCount() - 2; i >= 0; i--) {
             futurePrices.set(i, instance.itemList().get(i).price() + futurePrices.get(i + 1));
         }
         return futurePrices;
