@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class ConKnapSolutionW extends DataFileWrapper<ConKnapSolution> {
-    public ConKnapSolution read(String line) {
+public class ConKnapSolutionW extends DataFileWrapper<KnapSolution> {
+    public KnapSolution read(String line) {
         try {
             StringTokenizer st = new StringTokenizer(line);
             int id = Integer.parseInt(st.nextToken());
@@ -14,13 +14,17 @@ public class ConKnapSolutionW extends DataFileWrapper<ConKnapSolution> {
 
             List<Boolean> itemUsedList = new ArrayList<Boolean>();
             for (int i = 0; i < itemCount; i++) {
-                itemUsedList.add(Boolean.parseBoolean(st.nextToken()));
+                int candidate = Integer.parseInt(st.nextToken());
+                if (candidate == 0)
+                    itemUsedList.add(false);
+                else
+                    itemUsedList.add(true);
             }
 
-            return new ConKnapSolution(id, itemCount, bestPrice, itemUsedList);
+            return new KnapSolution(id, itemCount, bestPrice, itemUsedList);
         } catch (Exception e) {
             System.out.println("DecKnapInstanceW - cant read line.");
-            return new ConKnapSolution(1, 1, 1, new ArrayList<Boolean>());
+            return new KnapSolution(1, 1, 1, new ArrayList<Boolean>());
         }
     }
 }

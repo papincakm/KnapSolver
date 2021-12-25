@@ -1,13 +1,14 @@
 package com.company.knap;
 
-import java.util.List;
+import com.company.data.KnapInstanceInterface;
+import com.company.data.KnapSolution;
 
-public abstract class KnapSolver<S, T> {
-    protected final S instance;
+public abstract class KnapSolver<T extends KnapInstanceInterface> {
+    protected final T instance;
 
-    public KnapSolver(S knapInstance) {
+    public KnapSolver(T knapInstance) {
         this.instance = knapInstance;
     }
 
-    public abstract T solve();
+    public abstract KnapSolution solve();
 }

@@ -1,10 +1,9 @@
 package com.company.tests;
 
-import com.company.data.DecKnapInstance;
-import com.company.data.DecKnapInstanceW;
+import com.company.data.*;
 import com.company.io.FileReader;
 import com.company.knap.DecKnapSolver;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import java.net.URL;
 import java.util.List;
@@ -12,13 +11,18 @@ import java.util.List;
 public class DecKnapTest {
     @Test
     public void testResult() throws Exception {
-        URL resource = getClass().getClassLoader().getResource("firstHW_nr_NR4_inst.dat");
-
+        URL instancesResource = getClass().getClassLoader().getResource("firstHW_nr_NR4_inst.dat");
         List<DecKnapInstance> instList = new FileReader<DecKnapInstance>().read(new DecKnapInstanceW(),
-                resource.getPath());
+                instancesResource.getPath());
+
+        URL solutionsResource = getClass().getClassLoader().getResource("firstHW_nr_NK4_sol.dat");
+        List<KnapSolution> solList = new FileReader<KnapSolution>().read(new ConKnapSolutionW(),
+                solutionsResource.getPath());
+
         for (DecKnapInstance i : instList) {
-            System.out.println(new DecKnapSolver(i).solve());
+            if (!new DecKnapSolver(instList.get(1)).solve().equalsAsDecisionProblem(solList.get(1))) {
+                throw new Exception();
+            }
         }
-        throw new Exception();
     }
 }
