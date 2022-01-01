@@ -12,14 +12,7 @@ public class ConKnapSolver extends RecKnapSolver<KnapInstance> {
         super(knapInstance);
     }
 
-    public KnapSolution solve() {
-        //TODO: implement
-        recSolve(0, new KnapConfiguration(0, 0,
-                new ArrayList<Boolean>(Collections.nCopies(instance.itemCount(), false))));
-        return curBestSolution;
-    }
-
-    private Boolean recSolve(int position, KnapConfiguration configuration) {
+    protected Boolean recSolve(int position, KnapConfiguration configuration) {
         if (position == instance.itemCount())
             return evaluate(configuration);
 

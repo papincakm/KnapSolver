@@ -8,7 +8,7 @@ public class ConKnapSolutionW extends DataFileWrapper<KnapSolution> {
     public KnapSolution read(String line) {
         try {
             StringTokenizer st = new StringTokenizer(line);
-            int id = Integer.parseInt(st.nextToken());
+            int id = Math.abs(Integer.parseInt(st.nextToken())) - 1;
             int itemCount = Integer.parseInt(st.nextToken());
             int bestPrice = Integer.parseInt(st.nextToken());
 

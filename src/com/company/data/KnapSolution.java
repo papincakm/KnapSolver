@@ -8,14 +8,14 @@ public record KnapSolution(int id, int itemCount, int bestPrice, List<Boolean> i
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         KnapSolution that = (KnapSolution) o;
-        return Math.abs(id) == Math.abs(that.id) && itemCount == that.itemCount && bestPrice == that.bestPrice;
+        return id == that.id && itemCount == that.itemCount && bestPrice == that.bestPrice;
     }
 
     public boolean equalsAsDecisionProblem(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         KnapSolution that = (KnapSolution) o;
-        return Math.abs(id) == Math.abs(that.id) && itemCount == that.itemCount &&
+        return id == that.id && itemCount == that.itemCount &&
                 ((bestPrice > 0 && that.bestPrice > 0) || (bestPrice == 0 && that.bestPrice == 0));
     }
 }

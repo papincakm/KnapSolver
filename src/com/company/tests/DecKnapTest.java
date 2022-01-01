@@ -20,7 +20,14 @@ public class DecKnapTest {
                 solutionsResource.getPath());
 
         for (DecKnapInstance i : instList) {
-            if (!new DecKnapSolver(instList.get(1)).solve().equalsAsDecisionProblem(solList.get(1))) {
+            KnapSolution solution = new DecKnapSolver(i).solve();
+
+            if (solution.bestPrice() < i.minPrice() && solution.bestPrice() != 0) {
+                throw new Exception();
+            }
+
+            if (solution.bestPrice() == 0 && solList.get(solution.id()).bestPrice() >= i.minPrice() &&
+                    i.minPrice() != 0) {
                 throw new Exception();
             }
         }

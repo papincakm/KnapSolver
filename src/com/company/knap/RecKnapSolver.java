@@ -16,11 +16,21 @@ public abstract class RecKnapSolver<T extends KnapInstanceInterface> extends Kna
     public RecKnapSolver(T knapInstance) {
         super(knapInstance);
         futurePrices = countFuturePrices();
+        curBestSolution = new KnapSolution(instance.id(), instance.itemCount(), 0,
+                new ArrayList<Boolean>(Collections.nCopies(instance.itemCount(), false)));
     }
 
+    public KnapSolution solve() {
+        recSolve(0, new KnapConfiguration(0, 0,
+                new ArrayList<Boolean>(Collections.nCopies(instance.itemCount(), false))));
+        return curBestSolution;
+    }
+
+    protected abstract Boolean recSolve(int position, KnapConfiguration configuration);
+
     protected List<Integer> countFuturePrices() {
-        List<Integer> futurePrices = new ArrayList<Integer>(Collections.nCopies(instance.itemCount(), 0));
-        for (int i = instance.itemCount() - 2; i >= 0; i--) {
+        List<Integer> futurePrices = new ArrayList<Integer>(Collections.nCopies(instance.itemCount() + 1, 0));
+        for (int i = instance.itemCount() - 1; i >= 0; i--) {
             futurePrices.set(i, instance.itemList().get(i).price() + futurePrices.get(i + 1));
         }
         return futurePrices;
