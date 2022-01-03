@@ -15,7 +15,7 @@ public class DecKnapInstanceW extends DataFileWrapper<DecKnapInstance> {
 
             List<Item> itemList = new ArrayList<Item>();
             for (int i = 0; i < itemCount; i++) {
-                itemList.add(new Item(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())));
+                itemList.add(new Item(i, Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())));
             }
 
             return new DecKnapInstance(id, itemCount, capacity, minPrice, itemList);

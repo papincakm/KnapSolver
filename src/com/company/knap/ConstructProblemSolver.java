@@ -1,16 +1,12 @@
 package com.company.knap;
 
-import com.company.data.DecKnapInstance;
-import com.company.data.KnapSolution;
 import com.company.data.KnapConfiguration;
+import com.company.data.KnapInstance;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
-// KnapSolver for decision problem
-public class DecKnapSolver extends RecKnapSolver<DecKnapInstance> {
-    public DecKnapSolver(DecKnapInstance knapInstance){
+public class ConstructProblemSolver extends RecKnapSolver<KnapInstance> {
+    public ConstructProblemSolver(KnapInstance knapInstance){
         super(knapInstance);
     }
 
@@ -24,8 +20,7 @@ public class DecKnapSolver extends RecKnapSolver<DecKnapInstance> {
 
         configuration.usedItems().set(position, false);
         // call branch without adding item, dont continue if solution was found
-        if (recSolve(position + 1, configuration))
-            return true;
+        recSolve(position + 1, configuration);
 
         configuration = new KnapConfiguration(configuration.price() + instance.itemList().get(position).price(),
                 configuration.weight() + instance.itemList().get(position).weight(),
@@ -37,6 +32,6 @@ public class DecKnapSolver extends RecKnapSolver<DecKnapInstance> {
 
     @Override
     protected Boolean priceInSolutionOk(int price) {
-        return (price >= instance.minPrice());
+        return (price > curBestSolution.bestPrice());
     };
 }

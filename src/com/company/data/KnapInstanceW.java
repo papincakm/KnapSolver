@@ -14,7 +14,7 @@ public class KnapInstanceW extends DataFileWrapper<KnapInstance> {
 
             List<Item> itemList = new ArrayList<Item>();
             for (int i = 0; i < itemCount; i++) {
-                itemList.add(new Item(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())));
+                itemList.add(new Item(i, Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())));
             }
 
             return new KnapInstance(id, itemCount, capacity, itemList);

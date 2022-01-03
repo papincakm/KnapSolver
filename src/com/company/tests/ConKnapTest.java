@@ -5,8 +5,8 @@ import com.company.data.KnapInstance;
 import com.company.data.KnapInstanceW;
 import com.company.data.KnapSolution;
 import com.company.io.FileReader;
-import com.company.knap.ConKnapSolver;
-import org.testng.annotations.Test;
+import com.company.knap.ConstructProblemSolver;
+import org.junit.Test;
 
 import java.net.URL;
 import java.util.List;
@@ -24,7 +24,7 @@ public class ConKnapTest {
 
         for (KnapInstance i : instList) {
             System.out.println(i.id());
-            KnapSolution solution = new ConKnapSolver(i).solve();
+            KnapSolution solution = new ConstructProblemSolver(i).solve();
             if (!solution.equals(solList.get(i.id()))) {
                 System.out.println(solution);
                 System.out.println(solList.get(solution.id()));

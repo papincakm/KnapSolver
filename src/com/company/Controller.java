@@ -4,7 +4,7 @@ import com.company.data.DecKnapInstance;
 import com.company.data.DecKnapInstanceW;
 import com.company.gui.Presenter;
 import com.company.io.FileReader;
-import com.company.knap.DecKnapSolver;
+import com.company.knap.DecisionProblemSolver;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class Controller {
     public static void readFile(String filePath) {
         List<DecKnapInstance> instList = new FileReader<DecKnapInstance>().read(new DecKnapInstanceW(), filePath);
         for (DecKnapInstance i : instList) {
-            System.out.println(new DecKnapSolver(i).solve());
+            System.out.println(new DecisionProblemSolver(i).solve());
         }
     }
 }

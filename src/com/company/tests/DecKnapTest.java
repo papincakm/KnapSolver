@@ -2,8 +2,8 @@ package com.company.tests;
 
 import com.company.data.*;
 import com.company.io.FileReader;
-import com.company.knap.DecKnapSolver;
-import org.testng.annotations.Test;
+import com.company.knap.DecisionProblemSolver;
+import org.junit.Test;
 
 import java.net.URL;
 import java.util.List;
@@ -20,7 +20,7 @@ public class DecKnapTest {
                 solutionsResource.getPath());
 
         for (DecKnapInstance i : instList) {
-            KnapSolution solution = new DecKnapSolver(i).solve();
+            KnapSolution solution = new DecisionProblemSolver(i).solve();
 
             if (solution.bestPrice() < i.minPrice() && solution.bestPrice() != 0) {
                 throw new Exception();
