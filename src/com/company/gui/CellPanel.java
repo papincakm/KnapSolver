@@ -6,7 +6,6 @@ import java.awt.*;
 
 public class CellPanel extends JPanel {
     CellPanel(int width, int height) {
-        //setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         setLayout(new BorderLayout());
         setBorder((BorderFactory.createLineBorder(Color.BLACK)));
         setMinimumSize(new Dimension(width, height));

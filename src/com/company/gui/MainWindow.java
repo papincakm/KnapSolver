@@ -1,5 +1,7 @@
 package com.company.gui;
 
+import com.company.Main;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -19,21 +21,18 @@ public class MainWindow {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                final JPanel newPanel = new JobPanel();
-                jobPanelContainer.add(newPanel, BorderLayout.WEST);
-                jobPanelContainer.revalidate();
-                // Scroll down to last added panel
-                SwingUtilities.invokeLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        newPanel.scrollRectToVisible(newPanel.getBounds());
-                    }
-                });
+                addJobPanel();
             }
         });
         buttonBottomContainer.add(addButton);
 
         JButton runButton = new JButton("Run Selected");
+        runButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MainWindowActions.handleRunJobs();
+            }
+        });
         frame.add(runButton, BorderLayout.PAGE_END);
         buttonBottomContainer.add(runButton);
 
@@ -49,5 +48,18 @@ public class MainWindow {
         frame.pack();
         frame.setSize(600, 400);
         frame.setVisible(true);
+    }
+
+    private void addJobPanel() {
+        final JPanel newPanel = new JobPanel();
+        jobPanelContainer.add(newPanel, BorderLayout.WEST);
+        jobPanelContainer.revalidate();
+        // Scroll down to last added panel
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                newPanel.scrollRectToVisible(newPanel.getBounds());
+            }
+        });
     }
 }

@@ -1,8 +1,6 @@
 package com.company.tests;
 
-import com.company.data.ConKnapSolutionW;
 import com.company.data.KnapInstance;
-import com.company.data.KnapInstanceW;
 import com.company.data.KnapSolution;
 import com.company.io.FileReader;
 import com.company.knap.GreedySolver;
@@ -18,12 +16,10 @@ public class GreedyKnapTest {
     public void testResult() throws Exception {
         //TODO: create specific instances to test
         URL instancesResource = getClass().getClassLoader().getResource("NK4_inst.dat");
-        List<KnapInstance> instList = new FileReader<KnapInstance>().read(new KnapInstanceW(),
-                instancesResource.getPath());
+        List<KnapInstance> instList = new FileReader<KnapInstance>().read(instancesResource.getPath(), new KnapInstance());
 
         URL solutionsResource = getClass().getClassLoader().getResource("firstHW_nr_NK4_sol.dat");
-        List<KnapSolution> solList = new FileReader<KnapSolution>().read(new ConKnapSolutionW(),
-                solutionsResource.getPath());
+        List<KnapSolution> solList = new FileReader<KnapSolution>().read(solutionsResource.getPath(), new KnapSolution());
 
         ListIterator<KnapSolution> solIt = solList.listIterator();
         for (KnapInstance i : instList) {

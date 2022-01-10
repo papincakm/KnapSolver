@@ -12,12 +12,10 @@ public class DecKnapTest {
     @Test
     public void testResult() throws Exception {
         URL instancesResource = getClass().getClassLoader().getResource("firstHW_nr_NR4_inst.dat");
-        List<DecKnapInstance> instList = new FileReader<DecKnapInstance>().read(new DecKnapInstanceW(),
-                instancesResource.getPath());
+        List<DecKnapInstance> instList = new FileReader<DecKnapInstance>().read(instancesResource.getPath(), new DecKnapInstance());
 
         URL solutionsResource = getClass().getClassLoader().getResource("firstHW_nr_NK4_sol.dat");
-        List<KnapSolution> solList = new FileReader<KnapSolution>().read(new ConKnapSolutionW(),
-                solutionsResource.getPath());
+        List<KnapSolution> solList = new FileReader<KnapSolution>().read(solutionsResource.getPath(), new KnapSolution());
 
         for (DecKnapInstance i : instList) {
             KnapSolution solution = new DecisionProblemSolver(i).solve();

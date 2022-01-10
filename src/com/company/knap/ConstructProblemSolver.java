@@ -5,7 +5,7 @@ import com.company.data.KnapInstance;
 
 import java.util.ArrayList;
 
-public class ConstructProblemSolver extends RecKnapSolver<KnapInstance> {
+public class ConstructProblemSolver extends RecKnapSolver {
     public ConstructProblemSolver(KnapInstance knapInstance){
         super(knapInstance);
     }

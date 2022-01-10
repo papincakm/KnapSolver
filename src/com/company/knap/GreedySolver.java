@@ -6,7 +6,7 @@ import com.company.data.KnapSolution;
 
 import java.util.*;
 
-public class GreedySolver extends KnapSolver<KnapInstance>{
+public class GreedySolver extends KnapSolver {
 
     public GreedySolver(KnapInstance knapInstance) {
         super(knapInstance);

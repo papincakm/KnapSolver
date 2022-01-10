@@ -1,7 +1,6 @@
 package com.company.gui;
 
 import com.company.knap.KnapSolver;
-import com.google.common.collect.Table;
 
 import javax.swing.*;
 import java.awt.*;

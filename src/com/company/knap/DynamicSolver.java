@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class DynamicSolver extends KnapSolver<KnapInstance>{
+public class DynamicSolver extends KnapSolver {
     DynamicSolver(KnapInstance knapInstance) {
         super(knapInstance);
     }

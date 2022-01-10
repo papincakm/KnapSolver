@@ -2,18 +2,17 @@ package com.company.knap;
 
 import com.company.data.KnapConfiguration;
 import com.company.data.KnapInstance;
-import com.company.data.KnapInstanceInterface;
 import com.company.data.KnapSolution;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public abstract class RecKnapSolver<T extends KnapInstanceInterface> extends KnapSolver<T> {
+public abstract class RecKnapSolver extends KnapSolver {
     protected final List<Integer> futurePrices;
     protected KnapSolution curBestSolution;
 
-    public RecKnapSolver(T knapInstance) {
+    public RecKnapSolver(KnapInstance knapInstance) {
         super(knapInstance);
         futurePrices = countFuturePrices();
         curBestSolution = new KnapSolution(instance.id(), instance.itemCount(), 0,
