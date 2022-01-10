@@ -18,11 +18,14 @@ public class Presenter {
         /*mainFrame.setContentPane(mainWindow.$$$getRootComponent$$$());
         mainFrame.pack();
         mainFrame.setLocationRelativeTo(null);*/
-        mainWindow.setVisible(true);
     }
 
     public static void readFile(String filePath) {
         //Controller.readFile(filePath);
         Controller.readFile("C:\\Users\\marek\\Downloads\\firstHW_nr_NR4_inst.dat");
+    }
+
+    public static void addJob() {
+
     }
 }

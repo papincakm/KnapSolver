@@ -2,7 +2,7 @@ package com.company.tests;
 
 import com.company.data.KnapSolution;
 import com.company.utils.Utils;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import java.util.Collections;
 

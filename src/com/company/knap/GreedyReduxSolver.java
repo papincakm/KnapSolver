@@ -1,6 +1,5 @@
 package com.company.knap;
 
-import com.company.data.Item;
 import com.company.data.KnapInstance;
 import com.company.data.KnapSolution;
 import com.company.utils.Utils;
@@ -17,7 +16,7 @@ public class GreedyReduxSolver extends GreedySolver {
     @Override
     public KnapSolution solve() {
         KnapSolution candidate = greedySolve();
-        int maxId = Utils.getMaxPriced(instance.itemList());
+        int maxId = Utils.getMaxPricedId(instance.itemList());
 
         if (instance.itemList().get(maxId).price() > candidate.bestPrice() &&
             instance.itemList().get(maxId).weight() <= instance.capacity()) {

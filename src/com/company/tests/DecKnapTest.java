@@ -3,7 +3,7 @@ package com.company.tests;
 import com.company.data.*;
 import com.company.io.FileReader;
 import com.company.knap.DecisionProblemSolver;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import java.net.URL;
 import java.util.List;

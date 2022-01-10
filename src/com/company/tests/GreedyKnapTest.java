@@ -7,7 +7,7 @@ import com.company.data.KnapSolution;
 import com.company.io.FileReader;
 import com.company.knap.GreedySolver;
 import com.company.utils.Utils;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import java.net.URL;
 import java.util.List;
@@ -27,7 +27,7 @@ public class GreedyKnapTest {
 
         ListIterator<KnapSolution> solIt = solList.listIterator();
         for (KnapInstance i : instList) {
-            Utils.countRelativeError(new GreedySolver(i).solve(), solIt.next()));
+            Utils.countRelativeError(new GreedySolver(i).solve(), solIt.next());
         }
     }
 }

@@ -6,7 +6,7 @@ import com.company.data.KnapInstanceW;
 import com.company.data.KnapSolution;
 import com.company.io.FileReader;
 import com.company.knap.ConstructProblemSolver;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import java.net.URL;
 import java.util.List;

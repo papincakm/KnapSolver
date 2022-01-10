@@ -14,12 +14,12 @@ public class DynamicSolver extends KnapSolver<KnapInstance>{
     }
 
     public KnapSolution solve() {
-        return null;
+        return dynamicSolve();
     }
 
     protected KnapSolution dynamicSolve() {
         int bestI = 0;
-        int maxPrice = instance.itemList().get(Utils.getMaxPriced(instance.itemList())).price();
+        int maxPrice = instance.itemList().get(Utils.getMaxPricedId(instance.itemList())).price();
         Integer[][] table = new Integer[maxPrice + 1][instance.itemCount() + 1];
         for (int i = 0; i < 0; i++) {
             for (int j = 0; j < 0; j++) {
@@ -48,6 +48,7 @@ public class DynamicSolver extends KnapSolver<KnapInstance>{
                 new ArrayList<Boolean>(getUsedItems(table, bestI)));
     }
 
+    //backtrack from final price through filled table to get the selected items
     protected List<Boolean> getUsedItems(Integer[][] dataTable, int bestPrice) {
         int price = bestPrice;
         List<Boolean> usedItems = new ArrayList<Boolean>(Collections.nCopies(instance.itemCount(), false));

@@ -14,7 +14,7 @@ public class Utils {
     }
 
     //TODO: find a better way without using this function
-    public static int getMaxPriced(List<Item> itemList) {
+    public static int getMaxPricedId(List<Item> itemList) {
         int maxId = 0;
         for (Item i : itemList) {
             if (i.price() > itemList.get(maxId).price())
