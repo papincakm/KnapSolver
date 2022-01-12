@@ -1,31 +1,31 @@
 package com.company.gui;
 
-import com.company.Controller;
+import com.company.controllers.Controller;
+import com.company.data.Job;
 
 import javax.swing.JFrame;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Presenter {
     public static MainWindow mainWindow;
     public static JFrame mainFrame;
 
     public Presenter() {
-        /*mainFrame = new JFrame("KnapSolver");
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
         mainWindow = new MainWindow();
     }
 
     public static void showMain() {
-        /*mainFrame.setContentPane(mainWindow.$$$getRootComponent$$$());
-        mainFrame.pack();
-        mainFrame.setLocationRelativeTo(null);*/
+
     }
 
-    public static void readFile(String filePath) {
-        //Controller.readFile(filePath);
-        Controller.readFile("C:\\Users\\marek\\Downloads\\firstHW_nr_NR4_inst.dat");
-    }
+    public static void runJobs(List<String> instancePathList, List<String> algorithmList) {
+        List<Job> jobList = new ArrayList<Job>();
 
-    public static void addJob() {
+        for (int i = 0; i < instancePathList.size(); i++) {
+            jobList.add(new Job(instancePathList.get(i), " ", Job.Algorithm.valueOf(algorithmList.get(i))));
+        }
 
+        Controller.runJobs(jobList);
     }
 }

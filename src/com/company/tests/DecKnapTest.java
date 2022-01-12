@@ -1,7 +1,9 @@
 package com.company.tests;
 
 import com.company.data.*;
+import com.company.io.DecKnapInstanceEditor;
 import com.company.io.FileReader;
+import com.company.io.KnapSolutionEditor;
 import com.company.knap.DecisionProblemSolver;
 import org.testng.annotations.Test;
 
@@ -12,10 +14,10 @@ public class DecKnapTest {
     @Test
     public void testResult() throws Exception {
         URL instancesResource = getClass().getClassLoader().getResource("firstHW_nr_NR4_inst.dat");
-        List<DecKnapInstance> instList = new FileReader<DecKnapInstance>().read(instancesResource.getPath(), new DecKnapInstance());
+        List<DecKnapInstance> instList = new DecKnapInstanceEditor().readFile(instancesResource.getPath());
 
         URL solutionsResource = getClass().getClassLoader().getResource("firstHW_nr_NK4_sol.dat");
-        List<KnapSolution> solList = new FileReader<KnapSolution>().read(solutionsResource.getPath(), new KnapSolution());
+        List<KnapSolution> solList = new KnapSolutionEditor().readFile(solutionsResource.getPath());
 
         for (DecKnapInstance i : instList) {
             KnapSolution solution = new DecisionProblemSolver(i).solve();

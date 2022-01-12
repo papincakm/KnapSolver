@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class JobPanel extends JPanel {
-    FilePathPanel filePathPanel;
+    FilePathPanel instanceFilePathPanel;
     ChooseAlgorithmPanel chooseAlgorithmPanel;
     RunPanel runPanel;
 
@@ -13,11 +13,11 @@ public class JobPanel extends JPanel {
         setAlignmentX(LEFT_ALIGNMENT);
         setBorder((BorderFactory.createLineBorder(Color.BLACK)));
 
-        filePathPanel = new FilePathPanel();
+        instanceFilePathPanel = new FilePathPanel();
         chooseAlgorithmPanel = new ChooseAlgorithmPanel();
         runPanel = new RunPanel();
 
-        add(filePathPanel);
+        add(instanceFilePathPanel);
         add(chooseAlgorithmPanel);
         add(runPanel);
     }

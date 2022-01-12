@@ -1,46 +1,14 @@
-package com.company.data;
+package com.company.io;
+
+import com.company.data.Item;
+import com.company.data.KnapInstance;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class KnapInstance extends LineReader {
-    private final int id;
-    private final int itemCount;
-    private final int capacity;
-    private final List<Item> itemList;
-
-    public KnapInstance() {
-        id = 0;
-        itemCount = 0;
-        capacity = 0;
-        itemList = null;
-    }
-
-    public KnapInstance(int id, int itemCount, int capacity, List<Item> itemList) {
-        this.id = id;
-        this.itemCount = itemCount;
-        this.capacity = capacity;
-        this.itemList = itemList;
-    }
-
-    public int id() {
-        return id;
-    }
-
-    public int itemCount() {
-        return itemCount;
-    }
-
-    public int capacity() {
-        return capacity;
-    }
-
-    public List<Item> itemList() {
-        return itemList;
-    }
-
-    public KnapInstance read(String line) {
+public class KnapInstanceEditor extends FileEditor<KnapInstance>{
+    protected KnapInstance read(String line) {
         try {
             StringTokenizer st = new StringTokenizer(line);
             int id = Math.abs(Integer.parseInt(st.nextToken())) - 1;

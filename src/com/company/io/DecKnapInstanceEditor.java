@@ -1,27 +1,14 @@
-package com.company.data;
+package com.company.io;
+
+import com.company.data.DecKnapInstance;
+import com.company.data.Item;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class DecKnapInstance extends KnapInstance {
-    private final int minPrice;
-
-    public DecKnapInstance() {
-        super();
-        minPrice = 0;
-    }
-
-    public DecKnapInstance(int id, int itemCount, int capacity, int minPrice, List<Item> itemList) {
-        super(id, itemCount, capacity, itemList);
-        this.minPrice = minPrice;
-    }
-
-    public int minPrice() {
-        return minPrice;
-    }
-
-    public DecKnapInstance read(String line) {
+public class DecKnapInstanceEditor extends FileEditor<DecKnapInstance> {
+    protected DecKnapInstance read(String line) {
         try {
             StringTokenizer st = new StringTokenizer(line);
             int id = Math.abs(Integer.parseInt(st.nextToken())) - 1;
