@@ -5,18 +5,18 @@ import com.company.data.Job;
 import com.company.data.KnapInstance;
 
 public class SolverFactory {
-    public static KnapSolver create(Job.Algorithm algorithm, KnapInstance knapInstance) {
+    public static KnapSolver create(Job.Algorithm algorithm) {
         switch(algorithm) {
             case Constructive:
-                return new ConstructProblemSolver(knapInstance);
+                return new ConstructRecSolver();
             case Decision:
-                return new DecisionProblemSolver((DecKnapInstance) knapInstance);
+                return new DecisionRecSolver();
             case Dynamic:
-                return new DynamicSolver(knapInstance);
+                return new DynamicSolver();
             case Greedy:
-                return new GreedySolver(knapInstance);
+                return new GreedySolver();
             case GreedyRedux:
-                return new GreedyReduxSolver(knapInstance);
+                return new GreedyReduxSolver();
             default:
                 return null;
         }

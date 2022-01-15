@@ -58,4 +58,12 @@ public class KnapInstance extends LineReader {
             return new KnapInstance(1, 1, 1, new ArrayList<Item>());
         }
     }
+
+    public int getMaxPriceSum() {
+        return itemList.stream().mapToInt(Item::price).sum();
+    }
+
+    public int getMaxWeightSum() {
+        return itemList.stream().mapToInt(Item::weight).sum();
+    }
 }

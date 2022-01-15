@@ -2,15 +2,11 @@ package com.company.tests;
 
 import com.company.data.Item;
 import com.company.data.KnapInstance;
-import com.company.data.KnapSolution;
-import com.company.io.FileReader;
 import com.company.io.KnapInstanceEditor;
-import com.company.knap.ConstructProblemSolver;
 import org.testng.annotations.Test;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class KnapInstanceEditorTest {

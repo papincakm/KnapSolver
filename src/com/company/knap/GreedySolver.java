@@ -6,13 +6,12 @@ import com.company.data.KnapSolution;
 
 import java.util.*;
 
-public class GreedySolver extends KnapSolver {
+public class GreedySolver extends KnapSolver<KnapInstance> {
 
-    public GreedySolver(KnapInstance knapInstance) {
-        super(knapInstance);
-    }
+    public GreedySolver() {}
 
-    public KnapSolution solve() {
+    public KnapSolution solve(KnapInstance instance) {
+        this.instance = instance;
         return greedySolve();
     }
 

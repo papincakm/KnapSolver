@@ -5,16 +5,15 @@ import com.company.data.KnapSolution;
 import com.company.utils.Utils;
 
 public class FptasSolver extends DynamicSolver {
-    private KnapInstance fptasInstance;
     private double allowedError;
 
-    FptasSolver(KnapInstance knapInstance, double error) {
-        super(knapInstance);
+    FptasSolver(double error) {
         allowedError = allowedError;
     }
 
     @Override
-    public KnapSolution solve() {
+    public KnapSolution solve(KnapInstance instance) {
+        this.instance = instance;
         return null;
     }
 

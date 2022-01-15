@@ -5,10 +5,8 @@ import com.company.data.KnapInstance;
 
 import java.util.ArrayList;
 
-public class ConstructProblemSolver extends RecKnapSolver {
-    public ConstructProblemSolver(KnapInstance knapInstance){
-        super(knapInstance);
-    }
+public class ConstructRecSolver extends RecKnapSolver<KnapInstance> {
+    public ConstructRecSolver(){}
 
     protected Boolean recSolve(int position, KnapConfiguration configuration) {
         if (position == instance.itemCount())

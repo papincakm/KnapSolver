@@ -7,17 +7,6 @@ import com.company.io.KnapInstanceEditor;
 import com.company.knap.SolverFactory;
 
 import java.util.List;
-
-public class JobRunner {
-    public static void run(Job job) {
-        KnapInstance reader = KnapInstanceFactory.create(job.algorithm());
-        List<KnapInstance> instList = new KnapInstanceEditor().readFile(job.instanceFilePath());
-        for (KnapInstance i : instList) {
-            System.out.println(i.toString());
-        }
-        for (KnapInstance i : instList) {
-            KnapSolution solution = SolverFactory.create(job.algorithm(), i).solve();
-            System.out.println(solution);
-        }
-    }
+interface JobRunner {
+    public void run(Job job);
 }

@@ -25,7 +25,7 @@ public class GreedyKnapTest {
 
         ListIterator<KnapSolution> solIt = solList.listIterator();
         for (KnapInstance i : instList) {
-            Utils.countRelativeError(new GreedySolver(i).solve(), solIt.next());
+            Utils.countRelativeError(new GreedySolver().solve(i), solIt.next());
         }
     }
 }

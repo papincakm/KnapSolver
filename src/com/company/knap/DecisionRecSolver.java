@@ -6,10 +6,8 @@ import com.company.data.KnapConfiguration;
 import java.util.ArrayList;
 
 // KnapSolver for decision problem
-public class DecisionProblemSolver extends RecKnapSolver {
-    public DecisionProblemSolver(DecKnapInstance knapInstance){
-        super(knapInstance);
-    }
+public class DecisionRecSolver extends RecKnapSolver<DecKnapInstance> {
+    public DecisionRecSolver(){}
 
     protected Boolean recSolve(int position, KnapConfiguration configuration) {
         if (position == instance.itemCount())
@@ -34,6 +32,6 @@ public class DecisionProblemSolver extends RecKnapSolver {
 
     @Override
     protected Boolean priceInSolutionOk(int price) {
-        return (price >= ((DecKnapInstance)instance).minPrice());
+        return (price >= instance.minPrice());
     };
 }

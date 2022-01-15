@@ -74,4 +74,14 @@ public class KnapSolution extends LineReader {
             return new KnapSolution(1, 1, 1, new ArrayList<Boolean>());
         }
     }
+
+    @Override
+    public String toString() {
+        return "KnapSolution{" +
+                "id=" + id +
+                ", itemCount=" + itemCount +
+                ", bestPrice=" + bestPrice +
+                ", itemsUsed=" + itemsUsed +
+                '}';
+    }
 }

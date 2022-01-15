@@ -8,18 +8,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public abstract class RecKnapSolver extends KnapSolver {
-    protected final List<Integer> futurePrices;
+public abstract class RecKnapSolver<T extends KnapInstance> extends KnapSolver<T> {
+    protected List<Integer> futurePrices;
     protected KnapSolution curBestSolution;
 
-    public RecKnapSolver(KnapInstance knapInstance) {
-        super(knapInstance);
+    public RecKnapSolver() {
+    }
+
+    public KnapSolution solve(T knapInstance) {
+        instance = knapInstance;
         futurePrices = countFuturePrices();
         curBestSolution = new KnapSolution(instance.id(), instance.itemCount(), 0,
                 new ArrayList<Boolean>(Collections.nCopies(instance.itemCount(), false)));
-    }
 
-    public KnapSolution solve() {
         recSolve(0, new KnapConfiguration(0, 0,
                 new ArrayList<Boolean>(Collections.nCopies(instance.itemCount(), false))));
         return curBestSolution;

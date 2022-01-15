@@ -9,12 +9,11 @@ import java.util.Collections;
 import java.util.List;
 
 public class GreedyReduxSolver extends GreedySolver {
-    public GreedyReduxSolver(KnapInstance knapInstance) {
-        super(knapInstance);
-    }
+    public GreedyReduxSolver() {}
 
     @Override
-    public KnapSolution solve() {
+    public KnapSolution solve(KnapInstance instance) {
+        this.instance = instance;
         KnapSolution candidate = greedySolve();
         int maxId = Utils.getMaxPricedId(instance.itemList());
 
