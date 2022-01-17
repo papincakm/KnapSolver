@@ -3,6 +3,7 @@ package com.company.utils;
 import com.company.data.Item;
 import com.company.data.KnapSolution;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class Utils {
@@ -15,11 +16,6 @@ public class Utils {
 
     //TODO: find a better way without using this function
     public static int getMaxPricedId(List<Item> itemList) {
-        int maxId = 0;
-        for (Item i : itemList) {
-            if (i.price() > itemList.get(maxId).price())
-                maxId = i.id();
-        }
-        return maxId;
+        return itemList.stream().max(Comparator.comparing(Item::price)).get().id();
     }
 }

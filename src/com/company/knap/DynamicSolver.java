@@ -14,10 +14,10 @@ public class DynamicSolver extends KnapSolver<KnapInstance> {
 
     public KnapSolution solve(KnapInstance instance) {
         this.instance = instance;
-        return dynamicSolve();
+        return dynamicSolve(instance);
     }
 
-    protected KnapSolution dynamicSolve() {
+    protected KnapSolution dynamicSolve(KnapInstance instance) {
         int bestI = 0;
         int moreThanMaxWeight = instance.getMaxWeightSum() + 1;
         int maxPrice = instance.getMaxPriceSum() + 1;

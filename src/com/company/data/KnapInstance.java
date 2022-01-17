@@ -1,6 +1,7 @@
 package com.company.data;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -22,6 +23,14 @@ public class KnapInstance extends LineReader {
         this.itemCount = itemCount;
         this.capacity = capacity;
         this.itemList = itemList;
+    }
+
+    public KnapInstance(KnapInstance instance) {
+        this.id = instance.id();
+        this.itemCount = instance.itemCount();
+        this.capacity = instance.capacity();
+        this.itemList = new ArrayList<Item>();
+        this.itemList.addAll(instance.itemList());
     }
 
     public int id() {
@@ -65,5 +74,19 @@ public class KnapInstance extends LineReader {
 
     public int getMaxWeightSum() {
         return itemList.stream().mapToInt(Item::weight).sum();
+    }
+
+    public Item getMaxPricedItem() {
+        return itemList.stream().max(Comparator.comparing(Item::price)).get();
+    }
+
+    @Override
+    public String toString() {
+        return "KnapInstance{" +
+                "id=" + id +
+                ", itemCount=" + itemCount +
+                ", capacity=" + capacity +
+                ", itemList=" + itemList +
+                '}';
     }
 }

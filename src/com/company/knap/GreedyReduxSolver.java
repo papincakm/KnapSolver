@@ -15,7 +15,7 @@ public class GreedyReduxSolver extends GreedySolver {
     public KnapSolution solve(KnapInstance instance) {
         this.instance = instance;
         KnapSolution candidate = greedySolve();
-        int maxId = Utils.getMaxPricedId(instance.itemList());
+        int maxId = instance.getMaxPricedItem().id();
 
         if (instance.itemList().get(maxId).price() > candidate.bestPrice() &&
             instance.itemList().get(maxId).weight() <= instance.capacity()) {
