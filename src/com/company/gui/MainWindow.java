@@ -5,15 +5,20 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainWindow {
-    private JPanel jobPanelContainer;
-    private JPanel buttonBottomContainer;
-    private List<JobPanel> jobPanelList;
+    private final JPanel jobPanelContainer;
+    private final JPanel buttonBottomContainer;
+    private final List<JobPanel> jobPanelList;
+    private final List<CellPanel> cellPanelList;
+    private final JobPanelBuilder jobPanelBuilder;
+    private final LabelPanelContainer labelPanelContainer;
 
     MainWindow() {
         jobPanelList = new ArrayList<JobPanel>();
+        cellPanelList = new ArrayList<CellPanel>();
 
         final JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,11 +47,15 @@ public class MainWindow {
         frame.add(buttonBottomContainer, BorderLayout.PAGE_START);
 
         jobPanelContainer = new JPanel();
-        //jobPanelContainer.setLayout(new FlowLayout());
         jobPanelContainer.setLayout(new BoxLayout(jobPanelContainer, BoxLayout.Y_AXIS));
 
         frame.add(new JScrollPane(jobPanelContainer), BorderLayout.CENTER);
-        jobPanelContainer.add(new LabelPanel());
+        //TODO: refactor
+        labelPanelContainer = new LabelPanelContainer(new JobPanel().getLabelPanelList());
+        jobPanelContainer.add(labelPanelContainer);
+
+        jobPanelBuilder = new JobPanelBuilder();
+        jobPanelBuilder.add(labelPanelContainer);
 
         frame.pack();
         frame.setSize(600, 400);
@@ -54,25 +63,16 @@ public class MainWindow {
     }
 
     private void addJobPanel() {
-        final JobPanel newPanel = new JobPanel();
-        jobPanelList.add(newPanel);
-        jobPanelContainer.add(newPanel, BorderLayout.WEST);
-        jobPanelContainer.revalidate();
-        // Scroll down to last added panel
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() { newPanel.scrollRectToVisible(newPanel.getBounds());}
-        });
+        jobPanelBuilder.make(jobPanelContainer, jobPanelList, cellPanelList);
     }
 
     private void runJobs() {
         List<String> instanceFilePathList = new ArrayList<String>();
-        //List<String> resultFi
         List<String> algorithmList = new ArrayList<String>();
 
         for (JobPanel j : jobPanelList) {
-            instanceFilePathList.add(j.instanceFilePathPanel.getFilePath());
-            algorithmList.add(j.chooseAlgorithmPanel.getChosenAlgorithm());
+            instanceFilePathList.add(j.getInstanceFilePath());
+            algorithmList.add(j.getChosenAlgorithm());
         }
 
         MainWindowActions.handleRunJobs(instanceFilePathList, algorithmList);

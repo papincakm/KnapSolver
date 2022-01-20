@@ -15,7 +15,7 @@ public class RunPanel extends CellPanel{
         add(runBox);
     }
 
-    public static JPanel getLabelPanel() {
+    public JPanel getLabelPanel() {
         return getLabelPanel(labelString, width, height);
     }
 }

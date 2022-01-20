@@ -20,7 +20,7 @@ public class ChooseAlgorithmPanel extends CellPanel {
         add(algorithmList);
     }
 
-    public static JPanel getLabelPanel() {
+    public JPanel getLabelPanel() {
         return getLabelPanel(labelString, width, height);
     }
 

@@ -2,7 +2,6 @@ package com.company.controllers;
 
 import com.company.data.*;
 import com.company.io.DecKnapInstanceEditor;
-import com.company.io.KnapInstanceEditor;
 import com.company.knap.KnapSolver;
 import com.company.knap.SolverFactory;
 

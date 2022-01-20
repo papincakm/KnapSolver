@@ -1,10 +1,7 @@
 package com.company.controllers;
 
-import com.company.data.DecKnapInstance;
 import com.company.data.Job;
 import com.company.gui.Presenter;
-import com.company.io.FileReader;
-import com.company.knap.DecisionRecSolver;
 
 import java.util.List;
 

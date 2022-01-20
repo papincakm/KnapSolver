@@ -4,7 +4,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
-public class CellPanel extends JPanel {
+public abstract class CellPanel extends JPanel {
     CellPanel(int width, int height) {
         setLayout(new BorderLayout());
         setBorder((BorderFactory.createLineBorder(Color.BLACK)));
@@ -12,7 +12,7 @@ public class CellPanel extends JPanel {
         setMaximumSize(new Dimension(width, height));
     }
 
-    protected static JPanel getLabelPanel(String labelString, int width, int height) {
+    protected JPanel getLabelPanel(String labelString, int width, int height) {
         JPanel panel = new JPanel();
         panel.setMinimumSize(new Dimension(width, height));
         panel.setMaximumSize(new Dimension(width, height));
@@ -22,4 +22,6 @@ public class CellPanel extends JPanel {
         panel.add(label);
         return panel;
     }
+
+    public abstract JPanel getLabelPanel();
 }
